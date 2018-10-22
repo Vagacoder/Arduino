@@ -115,13 +115,13 @@ const int buzzerPin = 11;
 // 1. length of music
 const int lengthOfEdelweiss = 55;
 // 2. Notes (pitches) of edelweiss, see constans list above
-int edelweiss[] = { NOTE_E4, NOTE_G4, NOTE_D5, NOTE_C5, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4,
+const int edelweiss[] = { NOTE_E4, NOTE_G4, NOTE_D5, NOTE_C5, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4,
                     NOTE_A4, NOTE_G4, NOTE_E4, NOTE_G4, NOTE_D5, NOTE_C5, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_G4, NOTE_G4, NOTE_A4, NOTE_B4,
                     NOTE_C5, NOTE_C5, NOTE_D5, NOTE_G4, NOTE_G4, NOTE_B4, NOTE_A4, NOTE_G4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_A4, NOTE_C5,
                     NOTE_D5, NOTE_C5, NOTE_B4, NOTE_B4, NOTE_G4, NOTE_E4, NOTE_G4, NOTE_D5, NOTE_C5, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_G4,
                     NOTE_G4, NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5};
 // 3. Beats of edelweiss (eighth note is 1; quarter note is 2; half note is 4; whole note is 8)
-int beatsOfEdelweiss[] = {4, 2, 8, 4, 2, 8, 4, 2, 2, 2, 2, 8, 8, 4, 2, 8, 4, 2, 8, 4, 2, 2, 2, 2, 8, 8, 4, 1, 1, 2, 2, 2,
+const int beatsOfEdelweiss[] = {4, 2, 8, 4, 2, 8, 4, 2, 2, 2, 2, 8, 8, 4, 2, 8, 4, 2, 8, 4, 2, 2, 2, 2, 8, 8, 4, 1, 1, 2, 2, 2,
                           4, 2, 8, 4, 2, 4, 2, 4, 2, 8, 4, 2, 8, 4, 2, 8, 4, 2, 2, 2, 2, 8, 8};
 // 4. basic tempo is set 150 ms                         
 int tempo = 150;
@@ -146,15 +146,18 @@ void loop() {
   int i, duration;
 
   // assign the array of music notes to a pointer
-  int *mPtr = edelweiss;
+  int length = lengthOfEdelweiss;
+  int music[] = edelweiss;
+  int beats[] = beatsOfEdelweiss;
+  int *mPtr = music;
 
   // for loop iterating the array of music
-  for (i = 0; i < lengthOfEdelweiss; i++)  {
+  for (i = 0; i < length; i++)  {
     // LED on pin10 will be on and off for every note
     digitalWrite(10, HIGH);
 
     // calculation duration of notes based tempo
-    duration = beatsOfEdelweiss[i] * tempo;
+    duration = beats[i] * tempo;
 
     // play the current note
     if (mPtr[i] != 0) {
