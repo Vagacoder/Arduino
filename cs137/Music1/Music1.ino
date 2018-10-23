@@ -1,6 +1,5 @@
 /*
   Play music (Edelweiss) with flashing lights.
-  Features:
   1, This program plays the music of Edelweiss,
   2, Seven LEDs will flash respectively according to the current note
   3, The 8th LED will flash for every note to show the beats of music
