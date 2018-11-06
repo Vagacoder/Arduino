@@ -82,7 +82,7 @@ void loop()
   // and our "to" range is 0-255, map() will squeeze the larger
   // range into the smaller. (It can do this for any two ranges.)
  
-  // lightLevel = map(lightLevel, 0, 1023, 0, 255);
+   lightLevel = map(lightLevel, 0, 1023, 0, 255);
  
   // Because map() could still return numbers outside the "to" 
   // range, (if they're outside the "from" range), we'll also use
@@ -92,7 +92,7 @@ void loop()
   // below the range, it will reset it to the lowest number.
   // If the number is within the range, it will stay the same.
   
-  // lightLevel = constrain(lightLevel, 0, 255);
+  lightLevel = constrain(lightLevel, 0, 255);
   
   // Here's one last thing to think about. The circuit we made
   // won't have a range all the way from 0 to 5 Volts. It will
@@ -105,9 +105,9 @@ void loop()
   // in the functions below. Uncomment ONE of them to
   // try it out:
 
-  manualTune();  // manually change the range from light to dark
+  //manualTune();  // manually change the range from light to dark
   
-  //autoTune();  // have the Arduino do the work for us!
+  // autoTune();  // have the Arduino do the work for us!
 
   // The above functions will alter lightLevel to be cover the
   // range from full-on to full-off. Now we can adjust the
