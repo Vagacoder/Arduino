@@ -207,7 +207,7 @@ void setup()
 
   lcd.cursor();
   lcd.setCursor(9, 1);
-  lcd.print("seconds");
+  //lcd.print("seconds");
   lcd.createChar(0, hu1);
   lcd.createChar(1, hu2);
   lcd.createChar(2, qi1);
